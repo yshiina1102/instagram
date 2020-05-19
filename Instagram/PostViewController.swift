@@ -10,17 +10,9 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-
 class PostViewController: UIViewController {
     var image: UIImage!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // 受け取った画像をImageViewに設定する
-        imageView.image = image
-        
-    }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
 
@@ -56,14 +48,22 @@ class PostViewController: UIViewController {
             // HUDで投稿完了を表示する
             SVProgressHUD.showSuccess(withStatus: "投稿しました")
             // 投稿処理が完了したので先頭画面に戻る
-           UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
+            UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
         }
     }
+
 
     // キャンセルボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleCancelButton(_ sender: Any) {
         // 加工画面に戻る
         self.dismiss(animated: true, completion: nil)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // 受け取った画像をImageViewに設定する
+        imageView.image = image
     }
 
 }

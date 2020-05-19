@@ -9,8 +9,6 @@
 import UIKit
 import CLImageEditor
 
-
-
 class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLImageEditorDelegate {
     @IBAction func handleLibraryButton(_ sender: Any) {
         // ライブラリ（カメラロール）を指定してピッカーを開く
@@ -21,6 +19,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
             self.present(pickerController, animated: true, completion: nil)
         }
     }
+
     @IBAction func handleCameraButton(_ sender: Any) {
         // カメラを指定してピッカーを開く
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -30,6 +29,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
             self.present(pickerController, animated: true, completion: nil)
         }
     }
+
     @IBAction func handleCancelButton(_ sender: Any) {
         // 画面を閉じる
         self.dismiss(animated: true, completion: nil)
@@ -40,6 +40,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
 
         // Do any additional setup after loading the view.
     }
+
     // 写真を撮影/選択したときに呼ばれるメソッド
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if info[.originalImage] != nil {
@@ -59,6 +60,7 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
         // ImageSelectViewController画面を閉じてタブ画面に戻る
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+
     // CLImageEditorで加工が終わったときに呼ばれるメソッド
     func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
         // 投稿画面を開く
@@ -72,5 +74,5 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
         // ImageSelectViewController画面を閉じてタブ画面に戻る
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
+
 }

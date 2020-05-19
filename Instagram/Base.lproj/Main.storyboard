@@ -41,7 +41,7 @@
         <!--Post View Controller-->
         <scene sceneID="ecT-In-mLV">
             <objects>
-                <viewController storyboardIdentifier="PostViewController" id="OWt-rF-gjX" customClass="PostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Post" id="OWt-rF-gjX" customClass="PostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NIA-xf-DVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,7 +237,7 @@
         <!--設定-->
         <scene sceneID="9iK-zT-4tY">
             <objects>
-                <viewController storyboardIdentifier="SettingViewController" id="plS-6j-7FS" customClass="SettingViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Setting" id="plS-6j-7FS" customClass="SettingViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bGs-SR-grC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
