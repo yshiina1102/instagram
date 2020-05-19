@@ -12,6 +12,7 @@
 		D82E6B652473DAA000B09F03 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E6B642473DAA000B09F03 /* PostData.swift */; };
 		D82E6B6C2473DB4500B09F03 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E6B6A2473DB4500B09F03 /* PostTableViewCell.swift */; };
 		D82E6B6D2473DB4500B09F03 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82E6B6B2473DB4500B09F03 /* PostTableViewCell.xib */; };
+		D82E6B7024741B0900B09F03 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E6B6E24740BE300B09F03 /* PopupViewController.swift */; };
 		D8FAD7E12462B6A00098C429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD7E02462B6A00098C429 /* AppDelegate.swift */; };
 		D8FAD7E32462B6A00098C429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD7E22462B6A00098C429 /* SceneDelegate.swift */; };
 		D8FAD7E82462B6A00098C429 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FAD7E62462B6A00098C429 /* Main.storyboard */; };
@@ -240,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82E6B7024741B0900B09F03 /* PopupViewController.swift in Sources */,
 				D82E6B6C2473DB4500B09F03 /* PostTableViewCell.swift in Sources */,
 				D8FAD7F92462B7A50098C429 /* ImageSelectViewController.swift in Sources */,
 				D8FAD7F52462B7240098C429 /* LoginViewController.swift in Sources */,

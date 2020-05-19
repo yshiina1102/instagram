@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseUI
 
 class PostTableViewCell: UITableViewCell {
 
@@ -16,7 +15,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,31 +27,37 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    // PostDataの内容をセルに表示
+    
     func setPostData(_ postData: PostData) {
-        // 画像の表示
-        postImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpg")
-        postImageView.sd_setImage(with: imageRef)
-
-        // キャプションの表示
-        self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
-
-        // 日時の表示
-        self.dateLabel.text = ""
-        if let date = postData.date {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm"
-            let dateString = formatter.string(from: date)
-            self.dateLabel.text = dateString
+        self.postImageView.image = postData.image
+        if(postData.comments.count > 0) {
+            var str = "コメント一覧\n"
+            let data = postData.comments
+            for num in data {
+                print(num["comment"])
+                print("tick")
+                
+                str.append("\(num["name"]!) : \(num["comment"]!)\n")
+            }
+            print(str)
+            self.commentLabel.text = str
         }
-
-        // いいね数の表示
+        self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+        print("showshow1")
+        for come in postData.comments {
+            // ステートメント
+            dump(come)
+        }
+        print("showshow2")
+        //self.commentLabel.text = "\(postData.name!) : \(postData.comments.)"
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
-
-        // いいねボタンの表示
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let dateString = formatter.string(from: postData.date!)
+        self.dateLabel.text = dateString
+        
         if postData.isLiked {
             let buttonImage = UIImage(named: "like_exist")
             self.likeButton.setImage(buttonImage, for: .normal)
@@ -60,4 +66,8 @@ class PostTableViewCell: UITableViewCell {
             self.likeButton.setImage(buttonImage, for: .normal)
         }
     }
+    func setCommentPostData(_ :String) {
+        //self.commentLabel.text = "\(postCommentData.name!) : \(postCommentData.comments!)"
+    }
+    
 }
