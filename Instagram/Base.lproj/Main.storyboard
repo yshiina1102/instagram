@@ -14,10 +14,25 @@
                     <view key="view" contentMode="scaleToFill" id="PAl-fo-ckp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vai-e9-DXi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vai-e9-DXi" firstAttribute="top" secondItem="BLu-J1-ahz" secondAttribute="top" id="FCO-ah-g5A"/>
+                            <constraint firstItem="Vai-e9-DXi" firstAttribute="leading" secondItem="BLu-J1-ahz" secondAttribute="leading" id="Icp-CQ-6Gj"/>
+                            <constraint firstItem="BLu-J1-ahz" firstAttribute="trailing" secondItem="Vai-e9-DXi" secondAttribute="trailing" id="hco-uB-t5Q"/>
+                            <constraint firstItem="BLu-J1-ahz" firstAttribute="bottom" secondItem="Vai-e9-DXi" secondAttribute="bottom" id="jiB-J9-fqA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BLu-J1-ahz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="mSc-Mz-alx"/>
+                    <connections>
+                        <outlet property="tableView" destination="Vai-e9-DXi" id="x9C-Nf-zr8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHg-Xg-ax9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,13 +45,60 @@
                     <view key="view" contentMode="scaleToFill" id="NIA-xf-DVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-nI-6sy">
+                                <rect key="frame" x="10" y="64" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="88G-4y-AfR"/>
+                                    <constraint firstAttribute="width" constant="120" id="P40-2f-s5M"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キャプション" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFL-By-JXD">
+                                <rect key="frame" x="140" y="150" width="264" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7J2-iV-kMY">
+                                <rect key="frame" x="57" y="204" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ZiU-gU-Zsz"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handlePostButton:" destination="OWt-rF-gjX" eventType="touchUpInside" id="6zc-N7-3va"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiF-5x-5Mo">
+                                <rect key="frame" x="57" y="254" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="0mY-X5-oeh"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="OWt-rF-gjX" eventType="touchUpInside" id="Hl5-6C-8TY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EH9-nI-6sy" firstAttribute="top" secondItem="ah8-Dl-ENF" secondAttribute="top" constant="20" id="2Ld-gL-lyq"/>
+                            <constraint firstItem="SFL-By-JXD" firstAttribute="bottom" secondItem="EH9-nI-6sy" secondAttribute="bottom" id="5Lc-V3-33p"/>
+                            <constraint firstItem="7J2-iV-kMY" firstAttribute="top" secondItem="EH9-nI-6sy" secondAttribute="bottom" constant="20" id="J1t-lx-mw2"/>
+                            <constraint firstItem="ah8-Dl-ENF" firstAttribute="trailing" secondItem="SFL-By-JXD" secondAttribute="trailing" constant="10" id="NUT-js-7eK"/>
+                            <constraint firstItem="aiF-5x-5Mo" firstAttribute="top" secondItem="7J2-iV-kMY" secondAttribute="bottom" constant="10" id="RsV-p6-xSf"/>
+                            <constraint firstItem="EH9-nI-6sy" firstAttribute="leading" secondItem="ah8-Dl-ENF" secondAttribute="leading" constant="10" id="ii5-Ac-2yt"/>
+                            <constraint firstItem="SFL-By-JXD" firstAttribute="leading" secondItem="EH9-nI-6sy" secondAttribute="trailing" constant="10" id="ofT-B5-CiW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ah8-Dl-ENF"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="EH9-nI-6sy" id="81w-Ah-gAo"/>
+                        <outlet property="textField" destination="SFL-By-JXD" id="NHo-cG-fBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlY-GB-eBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2207" y="-642"/>
+            <point key="canvasLocation" x="-2207.2463768115945" y="-642.1875"/>
         </scene>
         <!--投稿-->
         <scene sceneID="wTE-oG-mo6">
