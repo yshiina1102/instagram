@@ -155,6 +155,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         cell.commentButton.addTarget(self, action: #selector(self.popup(_:forEvent:)), for: .touchUpInside)
         
+        // セル内のボタンのアクションをソースコードで設定する
+        cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        
         return cell
     }
     @objc func popup(_ sender: UIButton, forEvent event: UIEvent) {

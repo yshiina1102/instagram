@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class PostTableViewCell: UITableViewCell {
-
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
@@ -34,7 +34,6 @@ class PostTableViewCell: UITableViewCell {
             var str = "コメント一覧\n"
             let data = postData.comments
             for num in data {
-                print(num["comment"])
                 print("tick")
                 
                 str.append("\(num["name"]!) : \(num["comment"]!)\n")

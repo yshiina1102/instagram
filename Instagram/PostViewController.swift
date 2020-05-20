@@ -21,9 +21,6 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         // 受け取った画像をImageViewに設定する
         imageView.image = image
-        print("aaa")
-        print(image)
-        print("bbb")
 
         // Do any additional setup after loading the view.
     }
@@ -45,8 +42,9 @@ class PostViewController: UIViewController {
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
         
-        // 全てのモーダルを閉じる
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
+             // 投稿処理が完了したので先頭画面に戻る
+             UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
+        
     }
     
     
